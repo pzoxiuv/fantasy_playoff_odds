@@ -1,0 +1,82 @@
+ <!DOCTYPE html>
+<html>
+<head>
+<style>
+.button {
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+} 
+.button1 {background-color: #4CAF50;} /* Green */
+.button2 {background-color: #008CBA;} /* Blue */
+
+.topline {
+  color:black;
+  text-align: center;
+  padding: 5px 5px;
+  display: inline-block;
+  font-size: 24px;
+  background-color:#F0F8FF;
+  width: 100px;
+}
+
+
+.odds {
+  font-size: 20px
+}
+
+</style>
+</head>
+<body>
+
+<h1>Yahoo Fantasy playoff odds</h1>
+<div >
+
+  <div class="topline">
+    <h3>Simon</h3>
+    <p class = "odds" id="Simon">
+  </div>
+  <div class="topline">
+    <h3>Levi</h3>
+    <p class = "odds" id="Levi">
+  </div>
+  <div class="topline">
+    <h3>Traci</h3>
+    <p class = "odds" id="Traci">
+  </div>
+  <div class="topline">
+    <h3>Caleb</h3>
+    <p class = "odds" id="Caleb">
+  </div>
+  <div class="topline">
+    <h3>Dan</h3>
+    <p class = "odds" id="Dan">
+  </div>
+  <div class="topline">
+    <h3>Zach</h3>
+    <p class = "odds" id="Zach">
+  </div>
+  <div class="topline">
+    <h3>Alex</h3>
+    <p class = "odds" id="Alex">
+  </div> 
+  <div class="topline">
+    <h3>Carter</h3>
+    <p class = "odds" id="Carter">
+  </div>
+</div>
+
+<button class="button button1" id="b1">Simulate</button>
+
+<h2 class="display" id="clicked"></h2>
+
+<script src="{{ url_for('static', filename="js/handler.js") }}"></script>
+
+</body>
+</html> 
