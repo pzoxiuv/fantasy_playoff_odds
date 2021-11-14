@@ -9,11 +9,11 @@ def build_game_cell(game, week_num, game_num):
 
     id1 = f"{week_num}-{game_num}-1"
     id2 = f"{week_num}-{game_num}-2"
-    cell = f'<div><input type="radio" id="{id1}" data-team="{game[0]}" onchange=read_table()>'
+    cell = f'<div><input type="radio" id="{id1}" data-team="{game[0]}" data-selected="false" onclick=selected(this)>'
     cell += f'<label for="{id1}">{name1}</label>'
     #cell += "<br />vs. <br />"
     cell += "<br />"
-    cell += f'<div><input type="radio" id="{id2}" data-team="{game[1]}" onchange=read_table()>'
+    cell += f'<div><input type="radio" id="{id2}" data-team="{game[1]}" data-selected="false" onclick=selected(this)>'
     cell += f'<label for="{id2}">{name2}</label>'
     return cell
 

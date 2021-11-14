@@ -46,6 +46,31 @@ function submit(picks)  {
 
 }
 
+function selected(t) {
+	console.log(t);
+	console.log(t.dataset.selected);
+	if (t.dataset.selected == "false") {
+		t.dataset.selected = "true";
+		console.log("uh");
+	} else {
+		t.dataset.selected = "false";
+		t.checked = false;
+	}
+
+	// Make sure only one is selected
+	if (t.checked) {
+		base_id = t.id.substr(0, t.id.length-1);
+		team_num = t.id.substr(-1);
+		if (team_num == "1") {
+			document.getElementById(base_id+"2").checked = false;
+		} else {
+			document.getElementById(base_id+"1").checked = false;
+		}
+	}
+
+	read_table();
+}
+
 function read_table() {
   res = {};
   for (let week = 0; week < 15; week++) {
