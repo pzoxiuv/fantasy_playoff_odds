@@ -47,7 +47,8 @@ def get_click():
 
   req = request.get_json()
   if "picks" in req:
-    picks = req["picks"]
+    for k, v in req["picks"].items():
+      picks[int(k)] = v
 
   ## run simulation
   odds = playoff_odds.simulate(picks=picks)

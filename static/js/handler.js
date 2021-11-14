@@ -2,6 +2,8 @@
 var b1 = document.getElementById("b1")
 var buttons = document.getElementsByClassName("button")
 
+document.onload = reset_table
+
 console.log(buttons)
 
 b1.onclick = read_table
@@ -66,4 +68,14 @@ function read_table() {
   console.log(res);
 
   submit(res);
+}
+
+function reset_table() {
+  for (let week = 0; week < 15; week++) {
+    week_res = [];
+    for (let game = 0; game < 4; game++) {
+      document.getElementById(week+"-"+game+"-1").checked = false;
+      document.getElementById(week+"-"+game+"-2").checked = false;
+    }
+  }
 }
