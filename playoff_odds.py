@@ -5,6 +5,7 @@ import pickle
 import json
 import math
 
+teams = ["Simon", "Levi", "Traci", "Caleb", "Dan", "Zach", "Alex", "Carter"]
 
 def random_winner(matchup):
   team_0 = matchup[0]
@@ -102,6 +103,10 @@ def simulate(record_file = "data/actual_record.pkl", schedule_file = "data/sched
   ## Get the schedule in order to simulate the remaining games
   fl2 = open(schedule_file, 'rb') 
   schedule = pickle.load(fl2)
+
+  print(schedule)
+  print(actual_record)
+  print(picks)
 #
   ## Simulate 10,000 seasons with this schedule
   final_wins = simulate_seasons(schedule, actual_record, 10000, picks)
@@ -110,7 +115,7 @@ def simulate(record_file = "data/actual_record.pkl", schedule_file = "data/sched
   odds = playoff_odds(final_wins)
 #
   ## Display using actual team names
-  teams = ["Simon", "Levi", "Traci", "Caleb", "Dan", "Zach", "Alex", "Carter"] 
+  #teams = ["Simon", "Levi", "Traci", "Caleb", "Dan", "Zach", "Alex", "Carter"]
   print(pd.DataFrame( [ teams, odds]))
 #
   ## Make json object for the results
@@ -120,8 +125,8 @@ def simulate(record_file = "data/actual_record.pkl", schedule_file = "data/sched
 #
   return json.dumps(odds_dict, indent = 2)
 
+def get_schedule(schedule_file = "data/schedule.pkl"):
+  with open(schedule_file, 'rb') as f:
+    return pickle.load(f)
 
 print(simulate())
-
-
-

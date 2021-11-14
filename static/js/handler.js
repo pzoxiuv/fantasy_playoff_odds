@@ -4,12 +4,14 @@ var buttons = document.getElementsByClassName("button")
 
 console.log(buttons)
 
-b1.onclick = function()  {
+b1.onclick = read_table
+
+function submit(picks)  {
 
   fetch('/post', {
     method: "POST",
     credentials: "include",
-    body: JSON.stringify({"test":"other"}),
+    body: JSON.stringify({"picks":picks}),
     cache: "no-cache",
     headers: new Headers({
       "content-type": "application/json"
@@ -42,4 +44,26 @@ b1.onclick = function()  {
 
 }
 
+function read_table() {
+  res = {};
+  for (let week = 0; week < 15; week++) {
+    week_res = [];
+    for (let game = 0; game < 4; game++) {
+      team1 = document.getElementById(week+"-"+game+"-1");
+      team2 = document.getElementById(week+"-"+game+"-2");
+      if (team1.checked) {
+        week_res.push(team1.dataset.team)
 
+        if (team2.checked) {
+          console.log("!!! both teams selected");
+        }
+      } else if (team2.checked) {
+        week_res.push(team2.dataset.team)
+      }
+    }
+    res[week] = week_res;
+  }
+  console.log(res);
+
+  submit(res);
+}

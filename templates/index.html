@@ -31,6 +31,23 @@
   font-size: 20px
 }
 
+table,
+td,
+tr {
+  border: 1px solid;
+  border-collapse: collapse;
+}
+
+
+th:last-child,
+td:last-child {
+  border-right-width: 0;
+}
+
+tr:last-child td {
+  border-bottom-width: 0;
+}
+
 </style>
 </head>
 <body>
@@ -75,6 +92,10 @@
 <button class="button button1" id="b1">Simulate</button>
 
 <h2 class="display" id="clicked"></h2>
+
+<div id="schedule-table">
+{{ schedule_table|safe }}
+</div>
 
 <script src="{{ url_for('static', filename="js/handler.js") }}"></script>
 
